@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# Set the following to match the Live version you are using:
+# Set EDITION and VERSION to match the Live edition and version you are deploying:
 #
 #
 EDITION="Ableton Live 12 Suite"
@@ -17,7 +17,7 @@ chmod a+rw "/Library/Preferences/Ableton/Live ${VERSION}/"
 echo "-LicenseServer" > "/Library/Preferences/Ableton/Live ${VERSION}/Options.txt" 
 echo "-_DisableAutoUpdates" >> "/Library/Preferences/Ableton/Live ${VERSION}/Options.txt"
 
-# Create shared Packs folder
+# Create a shared Packs folder
 
 mkdir -p "/Users/Shared/Ableton/Factory Packs/"
 
