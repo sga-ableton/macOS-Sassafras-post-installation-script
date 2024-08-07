@@ -1,10 +1,10 @@
- #!/bin/bash
+#!/bin/bash
 
 #
 # Set the following to match the Live version you are using:
 #
 #
-EDITION="Live 12 Suite"
+EDITION="Ableton Live 12 Suite"
 VERSION="12.0.20"
 
 # Create shared preferences folder and allow rw permissions
@@ -19,10 +19,11 @@ echo "-_DisableAutoUpdates" >> "/Library/Preferences/Ableton/Live ${VERSION}/Opt
 
 # Create shared Packs folder
 
-mkdir "/Users/Shared/Ableton/Factory Packs/"
+mkdir -p "/Users/Shared/Ableton/Factory Packs/"
 
 # Run Ableton Live and capture its exit code
-"/Applications/${EDITION}.app/Contents/MacOS/Live" 
+open "/Applications/${EDITION}.app/Contents/MacOS/Live"
+
 
 # Capture the exit code
 LIVE_EXIT_CODE=$?
@@ -32,7 +33,6 @@ if [ ${LIVE_EXIT_CODE} -ne 0 ]; then
     echo "Ableton ${EDITION} Sassafras authorization failed with exit code ${LIVE_EXIT_CODE}"
     exit ${LIVE_EXIT_CODE}
 else
-    echo "Ableton ${EDITION} was successfully authorized."
+    echo "Ableton ${EDITION} was successfully configured for and authorized with Sassafras."
     exit 0
 fi
-
